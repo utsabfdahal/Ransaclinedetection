@@ -21,48 +21,12 @@ Adaptive threshold → skeletonize → sequential RANSAC (gap detection) → cor
 
 ---
 
-### Method 1 — Standard Hough Transform
-**Notebook:** `method1_hough_standard.ipynb`
+### Convolution with Directional Kernels
+**Notebook:** `method_convolution.ipynb`
 
-`cv2.HoughLines` on Canny edges. Detects infinite lines by voting in (ρ, θ) space.
+Adaptive threshold → skeletonize → convolve with oriented line kernels (0°, 45°, 90°, 135°) → extract segments per direction.
 
-![Standard Hough](result_hough_standard.png)
-
----
-
-### Method 2 — Probabilistic Hough Transform
-**Notebook:** `method2_hough_probabilistic.ipynb`
-
-`cv2.HoughLinesP` — outputs finite line segments with `minLineLength` and `maxLineGap` controls.
-
-![Probabilistic Hough](result_hough_probabilistic.png)
-
----
-
-### Method 3 — LSD on Skeletonized Image
-**Notebook:** `method3_lsd.ipynb`
-
-Adaptive mean threshold → skeletonize → `cv2.createLineSegmentDetector`. Skeleton preprocessing gives clean 1-pixel edges for LSD.
-
-![LSD](result_lsd.png)
-
----
-
-### Method 4 — Canny + Sequential RANSAC
-**Notebook:** `method4_canny_ransac.ipynb`
-
-Canny edge detection followed by sequential RANSAC with gap splitting (no skeletonization).
-
-![Canny RANSAC](result_canny_ransac.png)
-
----
-
-### Method 5 — Contour Approximation on Skeletonized Image
-**Notebook:** `method5_contour_approx.ipynb`
-
-Adaptive mean threshold → skeletonize → `cv2.findContours` + `cv2.approxPolyDP`. Skeleton produces tight polygonal fits.
-
-![Contour Approx](result_contour_approx.png)
+![Convolution](result_convolution.png)
 
 ---
 
