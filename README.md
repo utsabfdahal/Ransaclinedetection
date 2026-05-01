@@ -39,10 +39,10 @@ Adaptive threshold → skeletonize → sequential RANSAC (gap detection) → cor
 
 ---
 
-### Method 3 — Line Segment Detector (LSD)
+### Method 3 — LSD on Skeletonized Image
 **Notebook:** `method3_lsd.ipynb`
 
-`cv2.createLineSegmentDetector` — gradient-based, parameter-free segment detection.
+Adaptive mean threshold → skeletonize → `cv2.createLineSegmentDetector`. Skeleton preprocessing gives clean 1-pixel edges for LSD.
 
 ![LSD](result_lsd.png)
 
@@ -57,10 +57,10 @@ Canny edge detection followed by sequential RANSAC with gap splitting (no skelet
 
 ---
 
-### Method 5 — Contour Approximation
+### Method 5 — Contour Approximation on Skeletonized Image
 **Notebook:** `method5_contour_approx.ipynb`
 
-`cv2.findContours` + `cv2.approxPolyDP` — polygonal approximation of detected contours.
+Adaptive mean threshold → skeletonize → `cv2.findContours` + `cv2.approxPolyDP`. Skeleton produces tight polygonal fits.
 
 ![Contour Approx](result_contour_approx.png)
 
