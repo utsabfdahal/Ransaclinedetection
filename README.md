@@ -14,6 +14,8 @@ Detects structural lines of a hand-drawn cuboid from an image using Sequential R
 
 ![Result](result.png)
 
+> **Note:** Results are not perfect — this is a work in progress with continuous fixes and improvements.
+
 ## Usage
 
 ```bash
